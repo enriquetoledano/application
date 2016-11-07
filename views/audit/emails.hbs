@@ -1,12 +1,12 @@
 
 {{> header }}
 
-<h1>Emails audit</h1>
+<h1>Auditoría de Emails</h1>
 
 {{> show_flash_messages }}
 
 <div class="row">
-  <div class="col-md-6 lead">All emails ever been sent by system</div>
+  <div class="col-md-6 lead">Todos los emails que ha enviado el sistema a lo largo del tiempo</div>
 </div>
 
 <div class="row">&nbsp;</div>
@@ -17,36 +17,36 @@
       <table class="table table-hover all-departments">
         <thead>
           <tr>
-            <th>Filter options</th>
+            <th>Opciones de filtro</th>
           </tr>
         </thead>
         <tbody>
           <tr><td>
             <form action="/audit/email/" method="GET">
               <div class="form-group">
-                <input type="text" name="start_date" class="form-control" id="start_date" placeholder="Start Date"
+                <input type="text" name="start_date" class="form-control" id="start_date" placeholder="Fecha Inicial"
                   data-provide="datepicker" data-date-autoclose="1" data-date-format="yyyy-mm-dd"
                   value="{{#if filter.start_date }}{{as_date filter.start_date }}{{/if}}"
                 >
               </div>
               <div class="form-group">
-                <input type="text" name="end_date" class="form-control" id="end_date" placeholder="End Date"
+                <input type="text" name="end_date" class="form-control" id="end_date" placeholder="Fecha Final"
                   data-provide="datepicker" data-date-autoclose="1" data-date-format="yyyy-mm-dd"
                   value="{{#if filter.end_date }}{{as_date filter.end_date }}{{/if}}"
                 >
               </div>
               <div class="form-group">
                 <select class="form-control" id="employee" name="user_id">
-                  <option value="">Employee to filter by</option>
+                  <option value="">Empleado por el que filtrar</option>
                   {{#each all_users}}
                   <option value="{{this.id}}" {{# if_equal this.id ../filter.user_id }} selected="selected" {{/if_equal}} >{{this.full_name}}</option>
                   {{/each}}
                 </select>
               </div>
 
-              <button type="submit" class="btn btn-info">Filter</button>
+              <button type="submit" class="btn btn-info">Filtrar</button>
               {{# if show_reset_button }}
-              <a href="/audit/email/" class="btn btn-default">Reset</a>
+              <a href="/audit/email/" class="btn btn-default">Resetear</a>
               {{/if}}
             </form>
           </td></tr>
@@ -58,9 +58,9 @@
       <table class="table table-hover" id="email_list">
         <thead>
           <tr>
-            <th>To Employee</th>
-            <th>Subject</th>
-            <th>Date And Time</th>
+            <th>Al Empleado</th>
+            <th>Asunto</th>
+            <th>Fecha y Hora</th>
           </tr>
         </thead>
         <tbody>
@@ -81,7 +81,7 @@
           <tr id="collapse_{{ this.id }}" class="collapse">
             <td colspan=3>
               <address>
-                <strong>To Email:</strong>
+                <strong>Al Email:</strong>
                 <a href="mailto:#">{{this.email}}</a>
               </address>
               <pre>{{this.body}}</pre>
@@ -89,7 +89,7 @@
           </tr>
           {{else}}
           <tr><td colspan="3">
-            <div class="text-center">No emails recorded yet</div>
+            <div class="text-center">Aún no hay emails grabados</div>
           </td></tr>
           {{/each}}
         </tbody>

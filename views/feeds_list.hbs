@@ -1,9 +1,9 @@
 
 {{> header }}
 
-<h1>My feeds</h1>
+<h1>Mis feeds</h1>
 
-<p class="lead">Feeds for external calendars</p>
+<p class="lead">Feeds para calendarios externos</p>
 
 {{> show_flash_messages }}
 
@@ -16,19 +16,19 @@
     <div class="row">
       <div class="col-md-12">
 
-        <p class="description-paragraph">Share you TimeOff.Management data with external calendar providers such as Microsoft Outlook, Apple Calendar (iCal) or Google Calendar.</p>
+        <p class="description-paragraph">Comparta sus datos de TimeOff.Management con proveedores externos de calendarios como Microsoft Outlook, Apple Calendar (iCal) o Google Calendar.</p>
 
-        <p class="description-paragraph">We provide two streams from:</p>
+        <p class="description-paragraph">Proporcionamos dos fuentes de:</p>
         <p class="description-paragraph">
-          <a href="/calendar/">My Calendar</a> page - feeds all data from My Calendar page
+          Página <a href="/calendar/">Mi Calendario</a> - proporciona todos los datos de la página de calendario.
         </p>
         <p class="description-paragraph">
-          <a href="/teamview/">Team view</a> page - feeds Team view data for current month
+          Página <a href="/teamview/">Vista de Grupo</a> - proporciona los datos de la vista de grupo del mes en curso.
         </p>
 
-        <p class="description-paragraph">To export particular feed into default calendar application just click on corresponding link.</p>
+        <p class="description-paragraph">Para exportar un feed en particular en su aplicación de calendario por defecto, pulse en el enlace correspondiente.</p>
 
-        <p class="description-paragraph">Otherwise copy link location and pass it to external application.</p>
+        <p class="description-paragraph">En otro caso, copie la dirección del enlace en la aplicación externa.</p>
 
       </div>
     </div>
@@ -38,7 +38,7 @@
 
       <div class="col-md-5 well">
         <form method="POST" action="/calendar/feeds/regenerate/">
-        <a href="webcal://{{current_host}}/feed/{{calendar_feed.feed_token}}/ical.ics">My calendar feed <i class="fa fa-rss"></i></a>
+        <a href="webcal://{{current_host}}/feed/{{calendar_feed.feed_token}}/ical.ics">Feed de Mi calendario <i class="fa fa-rss"></i></a>
 
         <input type="hidden" name="token" value="{{calendar_feed.feed_token}}"/>
         <button type="submit" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
@@ -47,7 +47,7 @@
 
       <div class="col-md-5 col-md-offset-2 well">
         <form method="POST" action="/calendar/feeds/regenerate/">
-        <a href="webcal://{{current_host}}/feed/{{team_view_feed.feed_token}}/ical.ics">Team view feed <i class="fa fa-rss"></i></a>
+        <a href="webcal://{{current_host}}/feed/{{team_view_feed.feed_token}}/ical.ics">Feed de Vista de Grupo <i class="fa fa-rss"></i></a>
 
         <input type="hidden" name="token" value="{{team_view_feed.feed_token}}"/>
         <button type="submit" class="close" aria-label="Close"><span aria-hidden="true"><i class="fa fa-trash"></i></span></button>
