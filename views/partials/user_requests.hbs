@@ -1,11 +1,11 @@
 
 <div class="row main-row_header">
-  <p class="col-md-12">All absences</p>
+  <p class="col-md-12">Todas las ausencias</p>
 </div>
 <div class="row">
   {{# unless leaves}}
   <div class="col-md-12 text-muted">
-    There are no leave requests yet.
+    Aún no hay peticiones de días libres.
   </div>
   {{else}}
 
@@ -15,12 +15,12 @@
     <table class="table table-hover user-requests-table">
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Deducted</th>
-          <th>Dates</th>
-          <th>Approved by</th>
+          <th>Tipo</th>
+          <th>Utilizado</th>
+          <th>Fechas</th>
+          <th>Aprobado por</th>
           <th></th>
-          <th><span class="pull-right">Status</span></th>
+          <th><span class="pull-right">Estado</span></th>
         </tr>
       </thead>
 
@@ -30,19 +30,19 @@
       <tr>
         <td>{{ this.leave_type.name }}{{#if this.is_pended_revoke_leave}}<br>(pended revoke){{/if}}</td>
         <td>{{ this.get_deducted_days_number }}</td>
-        <td>From {{#with this.get_start_leave_day}}{{as_date this.date}}{{/with}} to {{#with this.get_end_leave_day}}{{as_date this.date}}{{/with}}</td>
-        <td class="user-request-table-approver">{{#with this.approver}}{{this.full_name}}{{/with}}</td>
+        <td>De {{#with this.get_start_leave_day}}{{as_date this.date}}{{/with}} a {{#with this.get_end_leave_day}}{{as_date this.date}}{{/with}}</td>
+	<td class="user-request-table-approver">{{#with this.approver}}{{this.full_name}}{{/with}}</td>        
         <td>
           {{# if this.is_approved_leave }}
           {{# unless this.is_pended_revoke_leave}}
           <form method="post" action="/requests/revoke/">
             <input type="hidden" value="{{this.id}}" name="request">
-            <button type="submit" class="pull-right btn btn-default btn-xs revoke-btn" title="Revoke leave request"><i class="fa fa-trash"></i></button>
+            <button type="submit" class="pull-right btn btn-default btn-xs revoke-btn" title="Revocar petición de días libres"><i class="fa fa-trash"></i></button>
           </form>
           {{/unless}}
           {{/if}}
         </td>
-        <td><span class="pull-right">{{#if this.is_new_leave }}Pending{{else}}{{#if this.is_approved_leave}}Approved{{else}}Rejected{{/if}}{{/if}}</span></td>
+        <td><span class="pull-right">{{#if this.is_new_leave }}Pendiente{{else}}{{#if this.is_approved_leave}}Aprobado{{else}}Rechazado{{/if}}{{/if}}</span></td>
       </tr>
 
       {{/ each }}

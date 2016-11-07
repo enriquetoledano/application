@@ -1,10 +1,10 @@
 
 {{> header }}
 
-<h1>Team View</h1>
+<h1>Vista de Grupo</h1>
 
 <div class="row">
-    <div class="col-md-6 lead">{{logged_user.name}} {{logged_user.lastname}}'s team <a href="/calendar/feeds/" data-toggle="tooltip" data-placement="right" title="Export Team View to external calendars"><span class="fa fa-rss"></span></a></div>
+    <div class="col-md-6 lead">Grupo de {{logged_user.name}} {{logged_user.lastname}} <a href="/calendar/feeds/" data-toggle="tooltip" data-placement="right" title="Exportar Vista de Grupo a calendarios externos"><span class="fa fa-rss"></span></a></div>
 </div>
 
 {{> show_flash_messages }}
@@ -32,7 +32,7 @@
 
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {{# if current_department }}{{current_department.name}}{{else}}All departments{{/if}}
+            {{# if current_department }}{{current_department.name}}{{else}}Todos departamentos{{/if}}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

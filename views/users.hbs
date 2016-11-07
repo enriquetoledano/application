@@ -1,15 +1,15 @@
 
 {{> header }}
 
-<h1>Staff</h1>
+<h1>Personal</h1>
 
 {{> show_flash_messages }}
 
 <div class="row">
-  <div class="col-md-3 lead">{{company.name}}'s staff</div>
-  <div class="col-md-3 col-md-offset-6">
-    <a href="/users/add/" class="btn btn-info pull-right" id="add_new_department">Add user</a>
-  </div>
+    <div class="col-md-3 lead">Personal de {{company.name}}</div>
+    <div class="col-md-3 col-md-offset-6">
+      <a href="/users/add/" class="btn btn-info pull-right" id="add_new_department">Añadir usuario</a>
+    </div>
 </div>
 
 <div class="row">&nbsp;</div>
@@ -20,11 +20,11 @@
       <table class="table table-hover all-departments">
         <thead>
           <tr>
-            <th>Departments</th>
+            <th>Departamentos</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><a href="/users/">All</a></td></tr>
+          <tr><td><a href="/users/">Todos</a></td></tr>
           {{#each company.departments}}
           <tr><td><a href="/users/?department={{this.id}}">{{this.name}}</a></td></tr>
           {{/each}}
@@ -36,10 +36,10 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Is Administrator?</th>
-            <th>Days used</th>
+            <th>Nombre</th>
+            <th>Departamento</th>
+            <th>¿Es Administrador?</th>
+            <th>Días usados</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +47,7 @@
           <tr>
             <td class="user-link-cell"><a href="/users/edit/{{this.id}}/">{{this.full_name}}</a></td>
             <td class="user_department">{{this.department.name}}</td>
-            <td>{{# if this.admin }}Yes{{else}}{{/if}}</td>
+            <td>{{# if this.admin }}Sí{{else}}{{/if}}</td>
             <td>{{this.calculate_number_of_days_taken_from_allowence}}</td>
           </tr>
           {{/each}}

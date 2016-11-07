@@ -1,18 +1,18 @@
 
 {{> header }}
 
-<h1>{{logged_user.name}} {{logged_user.lastname}} messages</h1>
+<h1>Mensajes para {{logged_user.name}} {{logged_user.lastname}}</h1>
 
 {{> show_flash_messages }}
 
 <div class="row main-row_header">
-  <p class="col-md-12">Leave request to approve</p>
+  <p class="col-md-12">Peticiones de días libres para aprobar</p>
 </div>
 
 <div class="row">
   {{# unless to_be_approved_leaves}}
   <div class="col-md-12 text-muted">
-    There are no leave request to decide on.
+    No hay peticiones de días libres sobre las que decidir.
   </div>
   {{else}}
   <div class="col-md-12">
@@ -21,12 +21,12 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Employee</th>
-          <th>Department</th>
-          <th>Date of request</th>
-          <th>Leave dates</th>
-          <th>Type</th>
-          <th>Days</th>
+          <th>Empleado</th>
+          <th>Departamento</th>
+          <th>Fecha de petición</th>
+          <th>Fechas de días libres</th>
+          <th>Tipo</th>
+          <th>Días</th>
           <th colspan="2"></th>
         </tr>
       </thead>
@@ -36,18 +36,18 @@
           <td>{{#with this.user}}{{this.full_name}}{{/with}}</td>
           <td>{{this.user.department.name}}</td>
           <td>{{as_date this.createdAt}}</td>
-          <td>From {{#with this.get_start_leave_day}}{{as_date this.date}}{{/with}} to {{#with this.get_end_leave_day}}{{as_date this.date}}{{/with}}</td>
+          <td>De {{#with this.get_start_leave_day}}{{as_date this.date}}{{/with}} a {{#with this.get_end_leave_day}}{{as_date this.date}}{{/with}}</td>
           <td>{{#if this.is_pended_revoke_leave}}REVOKE {{/if}}{{this.leave_type.name}}</td>
           <td>{{ this.get_deducted_days_number }}</td>
           <td>
             <form action="/requests/reject/" method="POST">
-            <input class="btn btn-warning" type="submit" value="Reject">
+            <input class="btn btn-warning" type="submit" value="Rechazar">
             <input type="hidden" value="{{this.id}}" name="request">
             </form>
           </td>
           <td>
             <form action="/requests/approve/" method="POST">
-            <input class="btn btn-success" type="submit" value="Approve">
+            <input class="btn btn-success" type="submit" value="Aprobar">
             <input type="hidden" value="{{this.id}}" name="request">
             </form>
           </td>

@@ -1,13 +1,9 @@
 {
-  "send_emails"              : false,
-  "application_sender_email" : "email@test.com",
+  "send_emails"              : true,
+  "application_sender_email" : "gestiondias@nomail.es",
   "email_transporter" : {
-    "host" : "localhost",
-    "port" : 25,
-    "auth" : {
-      "user" : "user",
-      "pass" : "pass"
-    }
+    "host" : "16.2.9.11",
+    "port" : 25
   },
   "crypto_secret" : "!2~`HswpPPLa22+=±§sdq qwe,appp qwwokDF_"
 }

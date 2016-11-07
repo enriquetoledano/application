@@ -2,9 +2,9 @@
 
 {{> header }}
 
-<h1>General settings</h1>
+<h1>Configuración general</h1>
 
-<p class="lead">Account main settings</p>
+<p class="lead">Configuraciones principales de la cuenta</p>
 
 {{> show_flash_messages }}
 
@@ -14,7 +14,7 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Company
+        Compañía
       </div>
       <div class="panel-body">
         <div class="row">
@@ -22,13 +22,13 @@
           <div class="col-md-5">
             <form class="form-horizontal" method="POST" action="/settings/company/" id="company_edit_form">
               <div class="form-group">
-                <label for="input_company_name" class="col-md-4 control-label">Company name</label>
+                <label for="input_company_name" class="col-md-4 control-label">Nombre de compañía</label>
                 <div class="col-md-8">
-                  <input class="form-control" id="input_company_name" placeholder="Our company name" value="{{company.name}}" name="name">
+                  <input class="form-control" id="input_company_name" placeholder="Nombre de nuestra compañía" value="{{company.name}}" name="name">
                 </div>
               </div>
               <div class="form-group">
-                <label for="input_country" class="col-md-4 control-label">Country</label>
+                <label for="input_country" class="col-md-4 control-label">País</label>
                 <div class="col-md-8">
                   <select class="form-control" id="input_country" name="country">
                     {{#each countries}}
@@ -41,17 +41,17 @@
                 <div class="col-md-offset-4 col-md-8">
                   <div class="checkbox">
                     <label for="share-all-absences">
-                      <input id="share-all-absences" type="checkbox" name="share_all_absences" {{# if company.share_all_absences }} checked="checked"{{/if}}>Share absences between all employees
+                      <input id="share-all-absences" type="checkbox" name="share_all_absences" {{# if company.share_all_absences }} checked="checked"{{/if}}>Compartir ausencias entre todos los empleados
                     </label>
                     <p>
-                      <em>If enabled all employees can see information about everybody's absences regardless departments.</em>
+                      <em>Si está habilitado, todos los empleados podrán ver la información de las ausencias entre sí, sin importar su departamento.</em>
                     </p>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                  <button type="submit" class="btn btn-success pull-right">Save changes</button>
+                  <button type="submit" class="btn btn-success pull-right">Guardar cambios</button>
                 </div>
               </div>
             </form>
@@ -60,14 +60,14 @@
           <div class="col-md-offset-1 col-md-5">
             <form class="form-horizontal" method="POST" action="/settings/company/export/" id="company_export_form">
               <div class="form-group">
-                <label for="input_country" class="col-md-6 control-label">Export company data</label>
+                <label for="input_country" class="col-md-6 control-label">Exportar datos de la compañía</label>
                 <div class="col-md-6">
-                  <button type="submit" class="btn btn-success">Download</button>
+                  <button type="submit" class="btn btn-success">Descargar</button>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-offset-2">
-                  <em>Download company dump file that could be used to restore account on another TimeOff.Management installation</em>
+                  <em>Descargar un archivo de configuración de la compañia que puede ser utilizado para restarurar la cuenta en otra instalación de TimeOff.Management</em>
                 </div>
               </div>
             </form>
@@ -83,22 +83,22 @@
   <div class="col-md-5">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Bank Holidays
+        Días Festivos
       </div>
       <div class="panel-body">
         <form id="delete_bankholiday_form" method="post" action="/settings/bankholidays/delete/"></form>
         <form id="update_bankholiday_form" method="post" action="/settings/bankholidays/">
 
         <div class="row">
-          <div class="col-md-6"><label class="control-label">Holiday Name</label></div>
-          <div class="col-md-3"><label class="control-label">Date</label></div>
+          <div class="col-md-6"><label class="control-label">Nombre de festividad</label></div>
+          <div class="col-md-3"><label class="control-label">Fecha</label></div>
         </div>
 
         <div class="row">&nbsp;</div>
 
         {{# unless company.bank_holidays.length }}
         <div class="row">
-          <div class="col-md-4">No Bank holiday records</div>
+          <div class="col-md-4">Sin registros de días festivos</div>
         </div>
         {{/unless}}
 
@@ -130,8 +130,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="pull-right">
-              <button class="btn btn-default" type="button" data-toggle="modal" data-target="#add_new_bank_holiday_modal" id="add_new_bank_holiday_btn">Add new</button>
-              <button type="submit" class="btn btn-success pull-right-">Save changes</button>
+              <button class="btn btn-default" type="button" data-toggle="modal" data-target="#add_new_bank_holiday_modal" id="add_new_bank_holiday_btn">Añadir nuevo</button>
+              <button type="submit" class="btn btn-success pull-right-">Guardar cambios</button>
             </div>
           </div>
         </div>
@@ -147,14 +147,14 @@
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        Leave Types
+        Tipos de días libres
       </div>
 
       <div class="panel-body">
 
         <div class="row">
-          <div class="col-md-6"><label class="control-label">Leave Type Name</label></div>
-          <div class="col-md-offset-3 col-md-2"><label class="control-label">Limit</label></div>
+          <div class="col-md-6"><label class="control-label">Nombre de Tipo de día libre</label></div>
+          <div class="col-md-offset-3 col-md-2"><label class="control-label">Límite</label></div>
         </div>
 
         <div class="row">&nbsp;</div>
@@ -176,7 +176,7 @@
           </div>
           <div class="col-md-3">
             <input name="use_allowance__{{@index}}" id="use_allowance__{{@index}}" type="checkbox" {{#if use_allowance}}checked="checked"{{/if}}>
-            <label for="use_allowance__{{@index}}" class="control-label">Use allowance</label>
+            <label for="use_allowance__{{@index}}" class="control-label">Usa máx. permitidos</label>
           </div>
           <div class="col-md-2">
             <input type="number" class="form-control" value="{{limit}}" name="limit__{{@index}}">
@@ -195,8 +195,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="pull-right">
-              <button class="btn btn-default" data-toggle="modal" data-target="#add_new_leave_type_modal" type="button" id="add_new_leave_type_btn">Add new</button>
-              <button type="submit" class="btn btn-success">Save changes</button>
+              <button class="btn btn-default" data-toggle="modal" data-target="#add_new_leave_type_modal" type="button" id="add_new_leave_type_btn">Añadir nuevo</button>
+              <button type="submit" class="btn btn-success">Guardar cambios</button>
             </div>
           </div>
         </div>
