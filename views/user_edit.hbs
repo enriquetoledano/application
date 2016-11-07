@@ -45,7 +45,7 @@
     <div class="col-md-3">
       <select class="form-control" id="select_inp" name="department" aria-describedby="department_help">
         {{#each company.departments}}
-            <option value="{{@index}}" {{#if_equal ../employee.DepartmentId this.id}} selected="selected"{{/if_equal}}>{{this.name}} (approver {{this.boss.name}} {{this.boss.lastname}})</option>
+            <option value="{{@index}}" {{#if_equal ../employee.DepartmentId this.id}} selected="selected"{{/if_equal}}>{{this.name}} (aprobador {{this.boss.name}} {{this.boss.lastname}})</option>
         {{/each}}
       </select>
     </div>
@@ -84,7 +84,7 @@
     </div>
     <span id="password_inp_help" class="help-block col-md-6">
       {{# if company.ldap_auth_enabled }}
-        <a href="/settings/company/authentication/">LDAP authentication</a> is enabled, so that password does not matter.
+        La <a href="/settings/company/authentication/">autenticación por LDAP</a> está habilitada, así que la contraseña es irrelevante.
       {{else}}
         Es posible cambiar la contraseña para esta cuenta.
       {{/ if}}
@@ -122,7 +122,7 @@
   <div class="form-group">
     <div class="col-md-9 col-md-offset-3">
       <label for="link_to_email_audit" class="control-label">
-        <a href="/audit/email/?user_id={{employee.id}}">Emails ever sent to {{#with employee}}{{this.full_name}}{{/with}}</a>
+        <a href="/audit/email/?user_id={{employee.id}}">Emails enviados a {{#with employee}}{{this.full_name}}{{/with}}</a>
       </label>
     </div>
   </div>
